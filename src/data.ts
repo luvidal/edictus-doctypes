@@ -1,7 +1,7 @@
 /**
  * Bundled catalog data.
  *
- * @jogi/doctypes OWNS the catalog (source-of-truth inversion vs the old
+ * @edictus/doctypes OWNS the catalog (source-of-truth inversion vs the old
  * @jogi/docs `configure({ doctypes })` injection). The raw JSON is generated
  * from `catalog/doctypes.yaml` by `catalog/build-doctypes.ts` and bundled here
  * at build time — no host injection, no runtime fs read.
@@ -9,8 +9,8 @@
 import rawCatalog from '../catalog/doctypes.json'
 
 /**
- * Raw catalog (unexpanded) — the shape @jogi/classifier / @jogi/extract /
- * @jogi/cedula consume via their own `configure({ doctypes })`. The host wires
+ * Raw catalog (unexpanded) — the shape @edictus/classifier / @edictus/extract /
+ * @edictus/cedula consume via their own `configure({ doctypes })`. The host wires
  * this in instead of reading `data/doctypes.json` directly.
  */
 export const doctypesCatalog: Record<string, unknown> = rawCatalog as Record<string, unknown>

@@ -1,4 +1,4 @@
-// @jogi/doctypes — the Chilean document-type catalog (the vocabulary).
+// @edictus/doctypes — the Chilean document-type catalog (the vocabulary).
 //
 // Pure data + helpers, no heavy deps. Safe to import from frontend or server.
 // Owns the catalog system: catalog/doctypes.yaml (source) → catalog/build-doctypes.ts
@@ -21,7 +21,7 @@ export {
 } from './doctypes'
 
 // Raw catalog (unexpanded, includes classifier blocks) — the host injects this
-// into @jogi/classifier / @jogi/extract / @jogi/cedula via their configure().
+// into @edictus/classifier / @edictus/extract / @edictus/cedula via their configure().
 export { doctypesCatalog, getRawDoctypes } from './data'
 
 export type {

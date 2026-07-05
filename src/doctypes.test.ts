@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { getDoctypesMap, getDoctype, getDoctypeIds, isRecurring, doctypesCatalog } from './index'
 import { getMultiPartConfig, getMultiPartDocTypeIds } from './multipart/index'
 
-describe('@jogi/doctypes catalog', () => {
+describe('@edictus/doctypes catalog', () => {
   it('loads the bundled catalog directly — no configure() needed', () => {
     const map = getDoctypesMap()
     expect(getDoctypeIds().length).toBeGreaterThan(10)

@@ -43,8 +43,8 @@ declare function applyDefaults(requirements: Record<string, {
 }>;
 
 /**
- * Raw catalog (unexpanded) — the shape @jogi/classifier / @jogi/extract /
- * @jogi/cedula consume via their own `configure({ doctypes })`. The host wires
+ * Raw catalog (unexpanded) — the shape @edictus/classifier / @edictus/extract /
+ * @edictus/cedula consume via their own `configure({ doctypes })`. The host wires
  * this in instead of reading `data/doctypes.json` directly.
  */
 declare const doctypesCatalog: Record<string, unknown>;

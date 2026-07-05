@@ -1,5 +1,5 @@
 // Doctype + multipart types for the Jogi document-type catalog (the vocabulary).
-// OCR / cédula / extraction types live in @jogi/extract and @jogi/cedula, not here.
+// OCR / cédula / extraction types live in @edictus/extract and @edictus/cedula, not here.
 
 export interface HowToObtain {
   steps: string[]
