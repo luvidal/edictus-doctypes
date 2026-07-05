@@ -1,5 +1,5 @@
 {
-  "name": "@jogi/doctypes",
+  "name": "@edictus/doctypes",
   "version": "0.1.0",
   "private": true,
   "description": "Chilean document-type catalog — single source of truth (yaml source + compiler + generated JSON + helpers/types + multipart) for the Jogi classifier/extract/cédula engine, host, and document-reader SaaS.",
