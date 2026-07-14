@@ -1,4 +1,4 @@
-# @jogi/doctypes
+# @edictus/doctypes
 
 The Chilean document-type **catalog** — the shared vocabulary for the Jogi document-reading engine. Owns the source-of-truth YAML, the compiler, the drift gate, and the bundled JSON. Zero runtime deps. Extracted from [jogi](../jogi) so the document-reading SaaS owns its own vocabulary.
 
@@ -15,14 +15,14 @@ The Chilean document-type **catalog** — the shared vocabulary for the Jogi doc
 2. **`catalog/build-doctypes.ts` is the compiler** — YAML→JSON: validates required fields + the `classifier` shape, auto-mirrors reciprocal `tieBreaker` entries, and rejects a `tieBreaker.vs` that doesn't resolve to a real id. Run `npm run build:doctypes` after editing the YAML.
 3. **`catalog/doctypes.json` is generated** and bundled into `dist/` (inlined by tsup). The package **self-loads** it — there is **no `configure({ doctypes })`**; every helper reads the bundled catalog on import.
 4. **Byte-stable serialization** — the bundled catalog must stringify byte-identically to what consumers hash. The upload slice-cache content hash depends on it; divergence breaks cache parity across the engine satellites. Do not reorder/reshape the JSON emitter casually.
-5. **Two entry points**: `@jogi/doctypes` (doctype queries, types, raw `doctypesCatalog`) and `@jogi/doctypes/multipart` (multi-part file utilities). Both are zero-runtime-dep and browser-safe.
+5. **Two entry points**: `@edictus/doctypes` (doctype queries, types, raw `doctypesCatalog`) and `@edictus/doctypes/multipart` (multi-part file utilities). Both are zero-runtime-dep and browser-safe.
 6. **No host coupling** — no `@/` imports, no Prisma/S3/Next, no Sentry. Pure data + helpers only.
 
 ## Public surface
 
 - Helpers/types: `getDoctypesMap`, `getDoctype`, `getDoctypesLegacyFormat`, `getDocumentDefaults`, `applyDefaults`, `isRecurring`, `DoctypesMap`, …
-- `doctypesCatalog` — the raw/unexpanded catalog (classifier blocks intact), exported for the host to inject into `@jogi/{classifier,extract,cedula}`.
-- `@jogi/doctypes/multipart` — multi-part file utilities (e.g. `getMultiPartConfig`).
+- `doctypesCatalog` — the raw/unexpanded catalog (classifier blocks intact), exported for the host to inject into `@edictus/{classifier,extract,cedula}`.
+- `@edictus/doctypes/multipart` — multi-part file utilities (e.g. `getMultiPartConfig`).
 
 ## Commands
 
@@ -42,7 +42,7 @@ npm test                 # vitest
 Consumed by Jogi via GitHub SHA pin (never `#main`, never `file:`):
 
 ```json
-"@jogi/doctypes": "github:luvidal/jogi-doctypes#<40-char-sha>"
+"@edictus/doctypes": "github:luvidal/edictus-doctypes#<40-char-sha>"
 ```
 
-Jogi wiring: `lib/domain/doctypes.ts` re-exports the package + `/multipart`; `lib/server/docsinit.ts` injects `doctypesCatalog` into the engine satellites. The future `@jogi/document-reader` engine uses the helpers directly.
+Jogi wiring: `lib/domain/doctypes.ts` re-exports the package + `/multipart`; `lib/server/docsinit.ts` injects `doctypesCatalog` into the engine satellites. The future `@edictus/docreader` engine uses the helpers directly.

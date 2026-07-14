@@ -1,4 +1,4 @@
-# @jogi/doctypes
+# @edictus/doctypes
 
 The Chilean document-type **catalog** — the shared vocabulary for the Jogi
 document-reading engine. It answers: *what document types exist, how is each
@@ -17,20 +17,20 @@ This package **owns the catalog system** (source-of-truth; Jogi consumes it):
 
 ## Consumed by
 
-- `@jogi/classifier` / `@jogi/extract` / `@jogi/cedula` — injected the **raw
+- `@edictus/classifier` / `@edictus/extract` / `@edictus/cedula` — injected the **raw
   catalog** (`doctypesCatalog`) via their `configure({ doctypes })`.
-- The Jogi host + the future `@jogi/document-reader` engine — use the **helpers**
+- The Jogi host + the future `@edictus/docreader` engine — use the **helpers**
   (`getDoctypesMap`, `getDoctype`, …) and `multipart` utilities.
 
 ## Usage
 
 ```ts
-import { getDoctypesMap, getDoctype, doctypesCatalog } from '@jogi/doctypes'
-import { getMultiPartConfig } from '@jogi/doctypes/multipart'
+import { getDoctypesMap, getDoctype, doctypesCatalog } from '@edictus/doctypes'
+import { getMultiPartConfig } from '@edictus/doctypes/multipart'
 ```
 
-Unlike the old `@jogi/docs`, there is **no `configure({ doctypes })`** — the
-catalog is bundled, so helpers work on import.
+Unlike the old monolithic `docs` package, there is **no `configure({ doctypes })`**
+— the catalog is bundled, so helpers work on import.
 
 ## Scripts
 
